@@ -8,7 +8,6 @@ class Game{
                   ['.','.','.','.','.','.'],
                   ['.','.','.','.','.','.']]
     this.currentPlayer = "1"
-    this.winner = `Player ${this.currentPlayer} Wins!`
   }
 
   playerMove(column){
@@ -19,11 +18,13 @@ class Game{
       if (this.board[rowCount][column - 1] === '.'){
         this.board[rowCount][column - 1] = this.currentPlayer
         this.board = this.board.reverse()
+        this.winCheck()
         this.changePlayer()
         break;
       }
       rowCount ++
     }
+    console.log(this.board)
   }
 
   changePlayer(){
@@ -35,6 +36,7 @@ class Game{
   }
 
   winCheck(){
+    let winner = `Player ${this.currentPlayer} Wins!`
     // vertical check
     for (var x = 0; x < this.board.length - 3; x++) {
       for (var y = 0; y < this.board[0].length; y++) {
@@ -42,7 +44,7 @@ class Game{
             && this.board[x+1][y] === this.currentPlayer
             && this.board[x+2][y] === this.currentPlayer
             && this.board[x+3][y] === this.currentPlayer){
-          return this.winner
+          return winner
         }
       }
     }
@@ -53,7 +55,7 @@ class Game{
             && this.board[x][y+1] === this.currentPlayer
             && this.board[x][y+2] === this.currentPlayer
             && this.board[x][y+3] === this.currentPlayer){
-          return this.winner
+          return winner
         }
       }
     }
@@ -64,7 +66,7 @@ class Game{
             && this.board[x+1][y+1] === this.currentPlayer
             && this.board[x+2][y+2] === this.currentPlayer
             && this.board[x+3][y+3] === this.currentPlayer){
-          return this.winner
+          return winner
         }
       }
     }
@@ -75,7 +77,7 @@ class Game{
             && this.board[x-1][y+1] === this.currentPlayer
             && this.board[x-2][y+2] === this.currentPlayer
             && this.board[x-3][y+3] === this.currentPlayer){
-          return this.winner
+          return winner
         }
       }
     }
