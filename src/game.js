@@ -57,13 +57,24 @@ class Game{
         }
       }
     }
-    // decending diagonal
+    // descending diagonal
     for (var x = 0; x < this.board.length - 3; x++) {
       for (var y = 0; y < this.board[0].length - 3; y++) {
         if (this.board[x][y] === this.currentPlayer
             && this.board[x+1][y+1] === this.currentPlayer
             && this.board[x+2][y+2] === this.currentPlayer
             && this.board[x+3][y+3] === this.currentPlayer){
+          return this.winner
+        }
+      }
+    }
+    // ascending diagonal
+    for (var x = 3; x < this.board.length; x++) {
+      for (var y = 0; y < this.board[0].length - 3; y++) {
+        if (this.board[x][y] === this.currentPlayer
+            && this.board[x-1][y+1] === this.currentPlayer
+            && this.board[x-2][y+2] === this.currentPlayer
+            && this.board[x-3][y+3] === this.currentPlayer){
           return this.winner
         }
       }

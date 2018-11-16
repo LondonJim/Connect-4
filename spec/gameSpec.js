@@ -51,13 +51,24 @@ describe("Game", function() {
     expect(game.winCheck()).toEqual("Player 1 Wins!")
   })
 
-  it ("Player 1 wins with a ascending diagonal line", function() {
+  it ("Player 1 wins with a descending diagonal line", function() {
     game.board = [['.','.','.','.','.','.'],
-                  ['.','.','.','.','.','.'],
+                  ['.','1','.','.','.','.'],
                   ['.','.','1','.','.','.'],
                   ['.','.','.','1','.','.'],
                   ['.','.','.','.','1','.'],
-                  ['.','.','.','.','.','1'],
+                  ['.','.','.','.','.','.'],
+                  ['.','.','.','.','.','.']]
+    expect(game.winCheck()).toEqual("Player 1 Wins!")
+  })
+
+  it ("Player 1 wins with a ascending diagonal line", function() {
+    game.board = [['.','.','.','.','.','.'],
+                  ['.','.','.','.','.','.'],
+                  ['.','.','.','.','1','.'],
+                  ['.','.','.','1','.','.'],
+                  ['.','.','1','.','.','.'],
+                  ['.','1','.','.','.','.'],
                   ['.','.','.','.','.','.']]
     expect(game.winCheck()).toEqual("Player 1 Wins!")
   })
