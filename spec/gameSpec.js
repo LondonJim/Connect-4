@@ -17,8 +17,9 @@ describe("Game", function() {
                                 ['1','.','.','.','.','.']])
   })
 
-  it ("second player should be able to 'drop' two tokens in same column", function() {
+  it ("second player should be able to 'drop' token in same column", function() {
     game.playerMove(1)
+    game.changePlayer()
     game.playerMove(1)
     expect(game.board).toEqual([['.','.','.','.','.','.'],
                                 ['.','.','.','.','.','.'],
@@ -29,7 +30,7 @@ describe("Game", function() {
                                 ['1','.','.','.','.','.']])
   })
 
-  it ("Player 1 wins with a vertical line", function() {
+  it ("player 1 wins with a vertical line", function() {
     game.board = [['.','.','.','.','.','.'],
                   ['.','.','.','.','.','.'],
                   ['.','.','.','.','.','.'],
@@ -40,7 +41,7 @@ describe("Game", function() {
     expect(game.winCheck()).toEqual("Player 1 Wins!")
   })
 
-  it ("Player 1 wins with a horizontal line", function() {
+  it ("player 1 wins with a horizontal line", function() {
     game.board = [['.','.','1','1','1','1'],
                   ['.','.','.','.','.','.'],
                   ['.','.','.','.','.','.'],
@@ -51,7 +52,7 @@ describe("Game", function() {
     expect(game.winCheck()).toEqual("Player 1 Wins!")
   })
 
-  it ("Player 1 wins with a descending diagonal line", function() {
+  it ("player 1 wins with a descending diagonal line", function() {
     game.board = [['.','.','.','.','.','.'],
                   ['.','1','.','.','.','.'],
                   ['.','.','1','.','.','.'],
@@ -62,7 +63,7 @@ describe("Game", function() {
     expect(game.winCheck()).toEqual("Player 1 Wins!")
   })
 
-  it ("Player 1 wins with a ascending diagonal line", function() {
+  it ("player 1 wins with a ascending diagonal line", function() {
     game.board = [['.','.','.','.','.','.'],
                   ['.','.','.','.','.','.'],
                   ['.','.','.','.','1','.'],

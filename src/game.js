@@ -18,8 +18,6 @@ class Game{
       if (this.board[rowCount][column - 1] === '.'){
         this.board[rowCount][column - 1] = this.currentPlayer
         this.board = this.board.reverse()
-        this.winCheck()
-        this.changePlayer()
         break;
       }
       rowCount ++
