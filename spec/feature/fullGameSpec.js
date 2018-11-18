@@ -6,7 +6,7 @@ describe("Full Game", function() {
     game = new Game();
   })
 
-  it ("full game where player 1 wins", function() {
+  it ("full game where player X wins", function() {
     game.playerMove(1)
     game.changePlayer()
     game.playerMove(2)
@@ -20,10 +20,10 @@ describe("Full Game", function() {
     game.playerMove(4)
     game.changePlayer()
     game.playerMove(1)
-    expect(game.winCheck()).toEqual('Player 1 Wins!')
+    expect(game.winCheck()).toEqual('Player X Wins!')
   })
 
-  it ("full game where player 2 wins", function() {
+  it ("full game where player O wins", function() {
     game.playerMove(1)
     game.changePlayer()
     game.playerMove(2)
@@ -39,6 +39,6 @@ describe("Full Game", function() {
     game.playerMove(1)
     game.changePlayer()
     game.playerMove(2)
-    expect(game.winCheck()).toEqual('Player 2 Wins!')
+    expect(game.winCheck()).toEqual('Player O Wins!')
   })
 })

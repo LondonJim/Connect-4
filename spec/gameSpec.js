@@ -8,69 +8,69 @@ describe("Game", function() {
 
   it ("player should be able to add a token to a column", function() {
     game.playerMove(1)
-    expect(game.board).toEqual([['.','.','.','.','.','.'],
-                                ['.','.','.','.','.','.'],
-                                ['.','.','.','.','.','.'],
-                                ['.','.','.','.','.','.'],
-                                ['.','.','.','.','.','.'],
-                                ['.','.','.','.','.','.'],
-                                ['1','.','.','.','.','.']])
+    expect(game.board).toEqual([[' ',' ',' ',' ',' ',' '],
+                                [' ',' ',' ',' ',' ',' '],
+                                [' ',' ',' ',' ',' ',' '],
+                                [' ',' ',' ',' ',' ',' '],
+                                [' ',' ',' ',' ',' ',' '],
+                                [' ',' ',' ',' ',' ',' '],
+                                ['X',' ',' ',' ',' ',' ']])
   })
 
   it ("second player should be able to 'drop' token in same column", function() {
     game.playerMove(1)
     game.changePlayer()
     game.playerMove(1)
-    expect(game.board).toEqual([['.','.','.','.','.','.'],
-                                ['.','.','.','.','.','.'],
-                                ['.','.','.','.','.','.'],
-                                ['.','.','.','.','.','.'],
-                                ['.','.','.','.','.','.'],
-                                ['2','.','.','.','.','.'],
-                                ['1','.','.','.','.','.']])
+    expect(game.board).toEqual([[' ',' ',' ',' ',' ',' '],
+                                [' ',' ',' ',' ',' ',' '],
+                                [' ',' ',' ',' ',' ',' '],
+                                [' ',' ',' ',' ',' ',' '],
+                                [' ',' ',' ',' ',' ',' '],
+                                ['O',' ',' ',' ',' ',' '],
+                                ['X',' ',' ',' ',' ',' ']])
   })
 
-  it ("player 1 wins with a vertical line", function() {
+  it ("player X wins with a vertical line", function() {
+    game.board = [[' ',' ',' ',' ',' ',' '],
+                  [' ',' ',' ',' ',' ',' '],
+                  [' ',' ',' ',' ',' ',' '],
+                  [' ','X',' ',' ',' ',' '],
+                  [' ','X',' ',' ',' ',' '],
+                  [' ','X',' ',' ',' ',' '],
+                  [' ','X',' ',' ',' ',' ']]
+    expect(game.winCheck()).toEqual("Player X Wins!")
+  })
+
+  it ("player X wins with a horizontal line", function() {
+    game.board = [[' ',' ','X','X','X','X'],
+                  [' ',' ',' ',' ',' ',' '],
+                  [' ',' ',' ',' ',' ',' '],
+                  [' ',' ',' ',' ',' ',' '],
+                  [' ',' ',' ',' ',' ',' '],
+                  [' ',' ',' ',' ',' ',' '],
+                  [' ',' ',' ',' ',' ',' ']]
+    expect(game.winCheck()).toEqual("Player X Wins!")
+  })
+
+  it ("player X wins with a descending diagonal line", function() {
+    game.board = [[' ',' ',' ',' ',' ',' '],
+                  [' ','X',' ',' ',' ',' '],
+                  [' ',' ','X',' ',' ',' '],
+                  [' ',' ',' ','X',' ',' '],
+                  [' ',' ',' ',' ','X',' '],
+                  [' ',' ',' ',' ',' ',' '],
+                  [' ',' ',' ',' ',' ',' ']]
+    expect(game.winCheck()).toEqual("Player X Wins!")
+  })
+
+  it ("player X wins with a ascending diagonal line", function() {
     game.board = [['.','.','.','.','.','.'],
                   ['.','.','.','.','.','.'],
-                  ['.','.','.','.','.','.'],
-                  ['.','1','.','.','.','.'],
-                  ['.','1','.','.','.','.'],
-                  ['.','1','.','.','.','.'],
-                  ['.','1','.','.','.','.']]
-    expect(game.winCheck()).toEqual("Player 1 Wins!")
-  })
-
-  it ("player 1 wins with a horizontal line", function() {
-    game.board = [['.','.','1','1','1','1'],
-                  ['.','.','.','.','.','.'],
-                  ['.','.','.','.','.','.'],
-                  ['.','.','.','.','.','.'],
-                  ['.','.','.','.','.','.'],
-                  ['.','.','.','.','.','.'],
+                  ['.','.','.','.','X','.'],
+                  ['.','.','.','X','.','.'],
+                  ['.','.','X','.','.','.'],
+                  ['.','X','.','.','.','.'],
                   ['.','.','.','.','.','.']]
-    expect(game.winCheck()).toEqual("Player 1 Wins!")
-  })
-
-  it ("player 1 wins with a descending diagonal line", function() {
-    game.board = [['.','.','.','.','.','.'],
-                  ['.','1','.','.','.','.'],
-                  ['.','.','1','.','.','.'],
-                  ['.','.','.','1','.','.'],
-                  ['.','.','.','.','1','.'],
-                  ['.','.','.','.','.','.'],
-                  ['.','.','.','.','.','.']]
-    expect(game.winCheck()).toEqual("Player 1 Wins!")
-  })
-
-  it ("player 1 wins with a ascending diagonal line", function() {
-    game.board = [['.','.','.','.','.','.'],
-                  ['.','.','.','.','.','.'],
-                  ['.','.','.','.','1','.'],
-                  ['.','.','.','1','.','.'],
-                  ['.','.','1','.','.','.'],
-                  ['.','1','.','.','.','.'],
-                  ['.','.','.','.','.','.']]
-    expect(game.winCheck()).toEqual("Player 1 Wins!")
+    expect(game.winCheck()).toEqual("Player X Wins!")
   })
 })

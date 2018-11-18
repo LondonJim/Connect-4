@@ -1,35 +1,35 @@
 class Game{
   constructor(){
-    this.board = [['.','.','.','.','.','.'],
-                  ['.','.','.','.','.','.'],
-                  ['.','.','.','.','.','.'],
-                  ['.','.','.','.','.','.'],
-                  ['.','.','.','.','.','.'],
-                  ['.','.','.','.','.','.'],
-                  ['.','.','.','.','.','.']]
-    this.currentPlayer = "1"
+    this.board = [[' ',' ',' ',' ',' ',' '],
+                  [' ',' ',' ',' ',' ',' '],
+                  [' ',' ',' ',' ',' ',' '],
+                  [' ',' ',' ',' ',' ',' '],
+                  [' ',' ',' ',' ',' ',' '],
+                  [' ',' ',' ',' ',' ',' '],
+                  [' ',' ',' ',' ',' ',' ']]
+    this.currentPlayer = "X"
   }
 
   playerMove(column){
+    console.log("selected")
     this.board = this.board.reverse()
     var rowCount = 0
     var totalRows = this.board.length - 1
     while (rowCount <= totalRows) {
-      if (this.board[rowCount][column - 1] === '.'){
+      if (this.board[rowCount][column - 1] === ' '){
         this.board[rowCount][column - 1] = this.currentPlayer
-        this.board = this.board.reverse()
         break;
       }
       rowCount ++
     }
-    console.log(this.board)
+    this.board = this.board.reverse()
   }
 
   changePlayer(){
-    if (this.currentPlayer === "1") {
-      this.currentPlayer = "2"
+    if (this.currentPlayer === "X") {
+      this.currentPlayer = "O"
     } else {
-      this.currentPlayer = "1"
+      this.currentPlayer = "X"
     }
   }
 
