@@ -11,7 +11,6 @@ class Game{
   }
 
   playerMove(column){
-    console.log(column)
     this.board = this.board.reverse()
     var rowCount = 0
     var totalRows = this.board.length - 1

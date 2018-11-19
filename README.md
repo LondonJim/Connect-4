@@ -36,3 +36,7 @@ copy path of `SpecRunner.html` and paste in to browser to run
 ##### Cypress
 
 enter `npm test` in terminal to open up cypress testing windows
+
+## Screen Shot
+
+![Image description](./public/screenShot.png)
