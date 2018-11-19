@@ -11,6 +11,14 @@
     <h1>Connect 4</h1>
     <table>
       <tr>
+          <td class="clickable" id="1">↓</td>
+          <td class="clickable" id="2">↓</td>
+          <td class="clickable" id="3">↓</td>
+          <td class="clickable" id="4">↓</td>
+          <td class="clickable" id="5">↓</td>
+          <td class="clickable" id="6">↓</td>
+      </tr>
+      <tr>
           <td id="cell00" ></td>
           <td id="cell01" ></td>
           <td id="cell02" ></td>
@@ -66,18 +74,11 @@
           <td id="cell64" ></td>
           <td id="cell65" ></td>
       </tr>
-      <tr>
-          <td class="key">1</td>
-          <td class="key">2</td>
-          <td class="key">3</td>
-          <td class="key">4</td>
-          <td class="key">5</td>
-          <td class="key">6</td>
-      </tr>
   </table>
   <div id="gameText">SELECT A COLUMN</div>
   <script>
     newGame = new playGame()
   </script>
+  <input id="reset" type='button' onclick='location.reload();' value='Reset Game' />
   </body>
 </html>

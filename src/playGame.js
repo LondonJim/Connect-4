@@ -2,8 +2,8 @@ class playGame{
 
   constructor(game = new Game()){
     this.game = game
-    this.handler = function(e){ this.play(e)}.bind(this)
-    document.body.addEventListener('keydown', this.handler)
+    this.clickable(true)
+    this.winCheck()
   }
 
 
@@ -16,19 +16,35 @@ class playGame{
     }
   }
 
-  play(e){
-    this.game.playerMove(e.key)
+  play(num){
+    this.game.playerMove(num)
     this.drawBoard()
-    this.gameText()
+    this.gameCheckText()
     this.game.changePlayer()
   }
 
-  gameText() {
+  gameCheckText() {
     var text
     if(this.game.winCheck() !== undefined) {
       text = document.getElementById("gameText")
       text.innerHTML = this.game.winCheck()
-      document.body.removeEventListener('keydown', this.handler);
+      this.clickable(false)
+    } else {
+      text = document.getElementById("gameText")
+      text.innerHTML = `${this.game.currentPlayer}'s turn, select a column`
     }
+  }
+
+  clickable(gameState) {
+    var local = this
+    for (var num = 1; num < 7; num++) (function(num) {
+      document.getElementById(`${num}`).onclick = function() {
+        if(gameState === true) {
+          local.play(num)
+        } else {
+          return null
+        }
+      };
+    })(num)
   }
 }
