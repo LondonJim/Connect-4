@@ -1,0 +1,25 @@
+{
+  "name": "connect-4",
+  "version": "1.0.0",
+  "description": "Connect4 is a grid-based game, where players take it in turns to add tokens. The winner is whoever manages to line up 4 pieces, in any direction, first. Diagonals are allowed.",
+  "main": "index.html",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LondonJim/Connect-4.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LondonJim/Connect-4/issues"
+  },
+  "homepage": "https://github.com/LondonJim/Connect-4#readme",
+  "dependencies": {
+    "cypress": "^3.1.2"
+  }
+}

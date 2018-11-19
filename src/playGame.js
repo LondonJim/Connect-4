@@ -3,7 +3,7 @@ class playGame{
   constructor(game = new Game()){
     this.game = game
     this.clickable(true)
-    this.winCheck()
+    this.gameCheckText()
   }
 
 

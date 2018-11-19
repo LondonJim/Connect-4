@@ -11,37 +11,28 @@ https://en.wikipedia.org/wiki/Connect_Four
 The aim is to develop an interactive version of the game which the
 candidate and interviewer can play together.
 
-A simple, text-based, representation of the grid is encouraged to
-start with. For example, you might use '.' for empty slots, and 'x'
-and 'o' for pieces of the two players. Players can input their turns
-via the REPL.
-
 A minimal version of the game should support:
 
 - a 6 x 7 grid
 - players play pieces sequentially
 - the game identifies winning turns and ends at that point
 
-## Bonus rounds
+## Installing and Executing
 
-### Pop Out
+`npm install` primarily for running cypress testing
 
-In addition to the existing rules, players may 'pop' one of the pieces
-out from the bottom of the board for their turn. All the pieces above
-shift downwards. Victory conditions remain the same as before.
+copy path of `index.html` and paste in to browser
 
-### 5-in-a-row
+Using the mouse click on the arrows to indicate which column you wish to 'drop' the token in to. Game ends when one player gets 4 in a row either vertically, horizontally or diagonally.
 
-Instead of four pieces in a row for victory, 5 are now required! Adapt
-the grid to be 6 x 9 to accommodate this.
+## Testing
 
-### Power up
+Combination of `jamsmine` and `cypress.io`
 
-In addition to the usual pieces, players also receive specially marked
-'Power Checkers' pieces. This can be played once per game. One example
-of a 'Power Checker' is an Anvil - this removes all pieces below it
-when played, leaving the Anvil at the bottom row of the board.
+##### Jasmine
 
-Implement the Anvil.
+copy path of `SpecRunner.html` and paste in to browser to run
 
-Invent your own 'Power Checker' and add it to the game!
+##### Cypress
+
+enter `npm test` in terminal to open up cypress testing windows
