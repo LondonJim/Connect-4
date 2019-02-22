@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/LondonJim/Connect-4#readme",
   "dependencies": {
-    "cypress": "^3.1.2"
+    "cypress": "^3.1.5"
   }
 }
